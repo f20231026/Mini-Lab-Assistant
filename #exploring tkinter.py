@@ -72,35 +72,34 @@ root = tk.Tk()
 root.title("Countdown Timer")
 root.geometry("300x150")
 
-# Step 2: Create a variable to store the time (in seconds)
+
 time_left = 10 # You can change this to any value
 
-# Step 3: Create a label to display the time
+
 timer_label = tk.Label(root, text="", font=("Helvetica", 30))
 timer_label.pack(pady=20)
 
-# Step 4: Define the countdown function
 def countdown():
     global time_left
     if time_left > 0:
-        # Step 4a: Calculate minutes and seconds
+        
         minutes = time_left // 60
         seconds = time_left % 60
 
-        # Step 4b: Update the label with formatted time
+        
         timer_label.config(text=f"{minutes:02d}:{seconds:02d}")
 
         
 
-        # Step 4d: Call this function again after 1000 ms (1 second)
+        
         root.after(1000, countdown)
         time_left -= 1
     else:
-        # Step 5: Show final message when time is up
+        
         timer_label.config(text="Time's up!")
         playsound("alarm.mp3")
 
-# Step 6: Create a Start button to begin countdown
+
 start_button = tk.Button(root, text="Start Timer", command=countdown)
 start_button.pack()
 
